@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fxb.oauth2.dao.UserDao">
+
+    <resultMap id="userResult" type="com.fxb.oauth2.entity.User">
+        <id property="id" column="id" />
+        <result property="username" column="username" />
+        <result property="password" column="password" />
+        <result property="salt" column="salt" />
+    </resultMap>
+
+    <sql id="userColumns">
+        a.id AS "id",
+        a.username AS "username",
+        a.password AS "password",
+        a.salt AS "salt"
+    </sql>
+
+    <select id="findAll" resultMap="userResult">
+        select <include refid="userColumns" /> FROM oauth2_user a
+    </select>
+    <select id="findByUsername" resultMap="userResult" parameterType="String">
+        select <include refid="userColumns" /> FROM oauth2_user a where username = #{username}
+    </select>
+
+    <delete id="delete" parameterType="com.fxb.oauth2.entity.User">
+        delete FROM  oauth2_user where id = #{id}
+    </delete>
+
+    <insert id="save" parameterType="com.fxb.oauth2.entity.User">
+        <selectKey keyProperty="id" order="BEFORE" resultType="String">
+            SELECT  UUID()
+        </selectKey>
+        INSERT INTO oauth2_user(id,username,password,salt) VALUE (
+        #{id},
+        #{username},
+        #{password},
+        #{salt}
+        )
+    </insert>
+</mapper>

@@ -255,5 +255,9 @@ public class LogOutServlet extends HttpServlet {
     }
 
 ```
-本文内容来自：http://www.wolfcode.cn/portal/ChooseCourses/info?id=20
 
+### oauth2.0服务端和客户端实现
+参考oauth2-server和oauth2-client项目
+
+本文内容来自：http://www.wolfcode.cn/portal/ChooseCourses/info?id=20
+项目来源：
