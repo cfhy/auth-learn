@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>登录</title>
+    <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#submit").click(function () {
+                $.post("/user/userLogin", $("#loginForm").serialize(), function (res) {
+                    localStorage.setItem("token", res.data);
+                    location.href = "/home/index";
+                })
+            });
+        });
+    </script>
+</head>
+
+<body>
+<div>
+    <form id="loginForm">
+        <div>用户名：<input type="text" id="username" name="username" placeholder="请输入账号">
+        </div>
+        <div>
+            密码：<input type="password" id="password" name="password" placeholder="请输入密码">
+        </div>
+        <div>
+            <button type="button" id="submit">登录</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
