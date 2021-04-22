@@ -14,7 +14,7 @@
         <oauth2.version>1.0.2</oauth2.version>
         <spring.version>4.3.11.RELEASE</spring.version>
         <mysql.connection.version>8.0.11</mysql.connection.version>
-        <shiro.version>1.2.2</shiro.version>
+        <shiro.version>1.7.1</shiro.version>
     </properties>
 
     <dependencies>
