@@ -13,7 +13,7 @@
 
     <properties>
         <oauth2.version>1.0.2</oauth2.version>
-        <spring.version>4.3.11.RELEASE</spring.version>
+        <spring.version>5.2.20.RELEASE</spring.version>
         <mysql.connection.version>5.1.30</mysql.connection.version>
         <shiro.version>1.2.2</shiro.version>
     </properties>
